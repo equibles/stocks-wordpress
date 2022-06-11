@@ -1,0 +1,26 @@
+{
+    "name": "equibles/stocks-wordpress",
+    "description": "Wordpress plugin to get Equibles stocks prices",
+    "type": "project",
+    "license": "GPL2",
+    "authors": [
+        {
+            "name": "Equibles",
+            "email": "contact@equibles.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/equibles/stocks-php.git"
+        }
+    ],
+    "require": {
+        "equibles/stocks-php": "*@dev",
+        "htmlburger/carbon-fields": "^3.3",
+        "kevinrob/guzzle-cache-middleware": "^4.0",
+        "doctrine/cache": "^2.2",
+        "league/flysystem": "^1.1.9",
+        "ext-json": "*"
+    }
+}
