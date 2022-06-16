@@ -35,7 +35,9 @@ function equibles_stocks_settings_page(): void {
 	         ->set_page_parent( 'options-general.php' )
 	         ->add_fields( array(
 		         Field::make( 'text', 'equibles_stocks_api_key', 'API Key' )
-		              ->set_attribute( 'maxLength', 128 )
+		              ->set_attribute( 'maxLength', 128 ),
+                 Field::make( 'text', 'equibles_stocks_cache_time', 'How long should the API requests be cached. We recommend to use a cache time of 15 minutes to improve the page load time. Use 0 to disable cache. ' )
+                     ->set_attribute('min', 0)->set_attribute('type', 'number'),
 	         ));
 }
 add_action('carbon_fields_register_fields', 'equibles_stocks_settings_page');
@@ -52,14 +54,14 @@ function equibles_stock($attrs): ?string {
 		'decimal_places' => $attrs["subtype"] == "volume" ? 0 : 2,
 		'decimal_separator' => '.',
 		'thousands_separator' => ' ',
-		'cache' => true,
-		'cache_time' => 15, // cache time in minutes
 	);
 	$options = shortcode_atts($default, $attrs);
 
+    $cache_time = (int) carbon_get_theme_option('equibles_stocks_cache_time');
+
 
 	// Configure Guzzle cache plugin
-	if($options['cache']){
+	if($cache_time > 0){
 		$stack = HandlerStack::create();
 		$stack->push(
 			new CacheMiddleware(
@@ -67,7 +69,7 @@ function equibles_stock($attrs): ?string {
 					new FlysystemStorage(
 						new Local(sys_get_temp_dir())
 					),
-					$options['cache_time'] * 60
+                    $cache_time * 60
 				)
 			), 'equibles_stock'
 		);
@@ -80,6 +82,7 @@ function equibles_stock($attrs): ?string {
 	$config = EquiblesStocks\Configuration::getDefaultConfiguration();
 	$pricesClient = new EquiblesStocks\Clients\PricesApi($httpClient, $config);
 	$apiKey = carbon_get_theme_option('equibles_stocks_api_key');
+
 
 	try {
         if($stockData == null) {

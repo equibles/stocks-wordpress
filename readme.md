@@ -69,12 +69,9 @@ The thousands' separator, default: " " (space).
 #### Parameter "time_format"
 The format of the time as in the PHP format function.
 
-#### Parameter "cache"
-Whether to cache the API results. Default: true.
-We recommend to enable the cache for improved load time.
-
-#### Parameter "cache_time"
-The maximum duration of the cache in minutes. Default: 15.
+### Settings page
+You should save your API in the plugin settings page (Settings -> Equibles Stocks).
+You can also enable caching for the API requests. We recommend using a cache time of 15 minutes to improve your site load time.
 
 
 ### Where can I report bugs?

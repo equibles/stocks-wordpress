@@ -10,6 +10,14 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Equibles Stocks allows to display stock quotes provided by Equibles on your Wordpress website using our shortcodes.
 
+
+== Description ==
+Equibles Stocks allows you to display stock quotes provided by Equibles on your Wordpress website.
+After installing the plugin you should register on [Equibles](https://www.equibles.com/) and get your API key for free.
+Once you have got your API key you should save it in the plugin options page (Options -> Equibles Stocks).
+After that the plugin setup is completed and you can start using the shortcodes provided by this plugin.
+
+
 === Examples ===
 
 ==== Displaying the daily closing price for a stock ====
@@ -72,22 +80,9 @@ The thousands' separator, default: " " (space).
 ==== Parameter "time_format" ====
 The format of the time as in the PHP format function.
 
-==== Parameter "cache" ====
-Whether to cache the API results. Default: true.
-We recommend to enable the cache for improved load time.
-
-==== Parameter "cache_time" ====
-The maximum duration of the cache in minutes. Default: 15.
-
-
-
-
-== Description ==
-Equibles Stocks allows you to display stock quotes provided by Equibles on your Wordpress website.
-After installing the plugin you should register on [Equibles](https://www.equibles.com/) and get your API key for free.
-Once you have got your API key you should save it in the plugin options page (Options -> Equibles Stocks).
-After that the plugin setup is completed and you can start using the shortcodes provided by this plugin.
-
+=== Settings page ===
+You should save your API in the plugin settings page (Settings -> Equibles Stocks).
+You can also enable caching for the API requests. We recommend using a cache time of 15 minutes to improve your site load time.
 
 
 = Where can I report bugs? =
