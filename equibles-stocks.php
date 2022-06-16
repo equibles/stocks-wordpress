@@ -43,6 +43,7 @@ add_action('carbon_fields_register_fields', 'equibles_stocks_settings_page');
 
 // Daily stock prices shortcode
 function equibles_stock($attrs): ?string {
+    static $stockData = null;
 	$default = array(
 		'ticker' => null,
 		'type' => 'daily_prices',
@@ -81,14 +82,22 @@ function equibles_stock($attrs): ?string {
 	$apiKey = carbon_get_theme_option('equibles_stocks_api_key');
 
 	try {
-		$result = $pricesClient->summary($apiKey, $options["ticker"]);
-		if ( $result->getCount() <= 0 ) {
-			return "-";
-		}
+        if($stockData == null) {
+            $result = $pricesClient->summary($apiKey, $options["ticker"]);
+            if ($result->getCount() <= 0) {
+                return "-";
+            }
+            $stockData = $result->getResults();
+        }
 
-		$stockData = $result->getResults();
 
 		if($options["type"] === "daily_prices") {
+            if ( $options["subtype"] === "change_percentage" ) {
+                return equibles_number_format( $stockData->getLatestCompletedTradingDayChangePercentage(), $options);
+            }
+            if ( $options["subtype"] === "change" ) {
+                return equibles_number_format( $stockData->getLatestCompletedTradingDayChange(), $options);
+            }
 			if ( $options["subtype"] === "high" ) {
 				return equibles_number_format( $stockData->getLatestCompletedTradingDayHigh(), $options);
 			}
@@ -111,6 +120,12 @@ function equibles_stock($attrs): ?string {
 		}
 
 		if($options["type"] === "intraday_prices"){
+            if ( $options["subtype"] === "change_percentage" ) {
+                return equibles_number_format( $stockData->getTodayChangePercentage(), $options);
+            }
+            if ( $options["subtype"] === "change" ) {
+                return equibles_number_format( $stockData->getTodayChange(), $options);
+            }
 			if ( $options["subtype"] === "high" ) {
 				return equibles_number_format( $stockData->getTodayHigh(), $options);
 			}

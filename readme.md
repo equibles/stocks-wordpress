@@ -42,6 +42,8 @@ The available options are:
   - open - The open value of the daily price candle.
   - time - The time of close of the candle.
   - volume - The amount of shares traded during the period.
+  - change - The absolute change in the stock price.
+  - change_percentage - The percentage change in the stock price.
 - intraday_prices
   - high - The high value of the price candle.
   - low - The low value of the price candle.
@@ -49,6 +51,8 @@ The available options are:
   - open - The open value of the price candle.
   - time - The time of close of the candle.
   - volume - The amount of shares traded during the period.
+  - change - The absolute change in the stock price.
+  - change_percentage - The percentage change in the stock price.
 - 52_week
   - high - The 52-week high of the selected stock.
   - low - The 52-week low of the selected stock.
@@ -65,6 +69,13 @@ The thousands' separator, default: " " (space).
 #### Parameter "time_format"
 The format of the time as in the PHP format function.
 
+#### Parameter "cache"
+Whether to cache the API results. Default: true.
+We recommend to enable the cache for improved load time.
+
+#### Parameter "cache_time"
+The maximum duration of the cache in minutes. Default: 15.
+
 
 ### Where can I report bugs?
 
@@ -76,7 +87,6 @@ Report bugs on the [Equibles Stocks GitHub repository](https://github.com/equibl
 #### Minimum Requirements
 
 * PHP 7.2 or greater is recommended
-* MySQL 5.6 or greater is recommended
 
 
 #### Automatic installation
