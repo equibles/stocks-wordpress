@@ -4,7 +4,7 @@
 Plugin Name: Equibles Stocks
 Plugin URI: https://www.equibles.com/api/pricing
 Description: A brief description of the Plugin.
-Version: 1.0
+Version: 1.0.0
 Author: Equibles
 Author URI: https://www.equibles.com/
 License: GPL2
