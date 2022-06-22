@@ -21,13 +21,10 @@ After that the plugin setup is completed and you can start using the shortcodes 
 === Examples ===
 
 ==== Displaying the daily closing price for a stock ====
-```text
-[equibles_stock ticker="AAPL" type="daily_prices" subtype="close"]
-```
+    [equibles_stock ticker="AAPL" type="daily_prices" subtype="close"]
 
-```text
-[equibles_stock ticker="AAPL" type="daily_prices" subtype="time" time_format="d/m/Y"]
-```
+    [equibles_stock ticker="AAPL" type="daily_prices" subtype="time" time_format="d/m/Y"]
+
 
 === Documentation ===
 Is this section we describe the shortcode parameters available.
