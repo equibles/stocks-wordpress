@@ -4,7 +4,7 @@ Tags: stocks, stock prices, equibles, stock quotes, stocks api
 Requires at least: 5.8
 Tested up to: 6.0
 Requires PHP: 7.2
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -25,6 +25,7 @@ After that the plugin setup is completed and you can start using the shortcodes 
 
     [equibles_stock ticker="AAPL" type="daily_prices" subtype="time" time_format="d/m/Y"]
 
+You can check all the parameters available in the "Documentation" section below.
 
 === Documentation ===
 Is this section we describe the shortcode parameters available.

@@ -15,6 +15,8 @@ After that the plugin setup is completed and you can start using the shortcodes 
 
     [equibles_stock ticker="AAPL" type="daily_prices" subtype="time" time_format="d/m/Y"]
 
+You can check all the parameters available in the "Documentation" section below.
+
 ### Documentation
 Is this section we describe the shortcode parameters available.
 
